@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import UserRegister from "./Pages/Register/UserRegister";
+import VendorRegister from "./Pages/Register/VendorRegister";
+import UserLogin from "./Pages/Login/UserLogin";
+import VendorLogin from "./Pages/Login/VendorLogin";
+import CreateProduct from "./Pages/CreateProduct";
+import ViewProducts from "./Pages/ViewProducts";
+import VendorProducts from "./Pages/VendorProducts";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/Register" element={<UserRegister />} />
+          <Route path="/Register/Vendor" element={<VendorRegister />} />
+          <Route path="/" element={<UserLogin />} />
+          <Route path="/Login/Vendor" element={<VendorLogin />} />
+          <Route path="/CreateProduct" element={<CreateProduct />} />
+          <Route path="/ViewProducts" element={<ViewProducts />} />
+          <Route path="/myProducts" element={<VendorProducts />} />
+
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
